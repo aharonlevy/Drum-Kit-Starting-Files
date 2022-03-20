@@ -6,12 +6,13 @@ function (){
     var currentkey = this.innerHTML;
 
     makeSound(currentkey);
-   
+   prassAnimation(currentkey);
 });
 }
 document.addEventListener("keydown", 
 function (event) {
-    makeSound(event.key)  ; 
+    makeSound(event.key);
+    prassAnimation(event.key);
 } )
 
 function makeSound(key) {
@@ -53,4 +54,15 @@ function makeSound(key) {
         default:
             break;
     } 
+}
+
+function prassAnimation(key) {
+    var activeKey = document.querySelector("."+key);
+
+    activeKey.classList.add("pressed");
+
+    setTimeout(function(){
+        activeKey.classList.remove("pressed");
+    } , 100);
+   
 }
